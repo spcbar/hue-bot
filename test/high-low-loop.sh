@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo 'Started'
-
 while :
 do
     if [[ ! -f $1 ]]; then
@@ -12,5 +10,3 @@ do
 	./hue.sh brightness 50 10
 	sleep 1
 done
-
-echo 'Stopped'

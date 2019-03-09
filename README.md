@@ -16,6 +16,19 @@ Run `./hue.sh COMMAND`.
 
 - `on`: turns the lamp on 
 - `off`: turns the lamp off
+- `brightness VALUE`: set brightness
+
+### Modules
+
+- `php ./app/satellite.php`
+
+### Thinking mode
+
+Start before interaction:
+`make high-low-start`
+
+End after interaction:
+`make high-low-stop`
 
 ### Web
 
