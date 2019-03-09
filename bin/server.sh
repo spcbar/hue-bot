@@ -7,5 +7,5 @@ if [[ -f server.pid ]]; then
 	exit
 fi
 
-php -S localhost:9080 -t web/ >/dev/null 2>&1 &
+php -S 0.0.0.0:9080 -t web/ >/dev/null 2>&1 &
 echo $! > server.pid
