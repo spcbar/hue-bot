@@ -21,7 +21,7 @@ Run `./hue.sh COMMAND`.
 
 Run the web app:
 ```
-php -S localhost:9080
+php -S localhost:9080 -t web/
 open localhost:9080
 ```
 
