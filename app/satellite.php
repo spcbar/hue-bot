@@ -3,11 +3,10 @@
 require __DIR__ . '/../src/curl.php';
 require __DIR__ . '/../src/time.php';
 
-$utc = time();
 $secondsTillNextSatellite = $argv[1] ?? 4501;
 
 /*
-$satellites = curl('GET', 'http://spacebar.hurma.tv/satellites?utc_time=' . $utc);
+$satellites = curl('GET', 'http://spacebar.hurma.tv/satellites');
 $first = array_shift($satellites);
 if (!empty($first)) {
   $secondsTillNextSatellite = $first['start_utc'] - $utc;

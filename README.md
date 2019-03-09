@@ -34,8 +34,9 @@ End after interaction:
 
 Run the web app:
 ```
-php -S localhost:9080 -t web/
-open localhost:9080
+make web
+open http://localhost:9080/hue.html
+open http://localhost:9080/countdown.php
 ```
 
 Press `start` button and speak.  
