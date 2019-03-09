@@ -10,6 +10,7 @@ $(function(){
         },
         silent: function () {
             rocketPayloadAndromeda.removeClass('glow');
-        }
+        },
+
     };
 });
