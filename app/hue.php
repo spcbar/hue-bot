@@ -1,28 +1,36 @@
 <?php
 
-require __DIR__ . '/../src/curl.php';
-
-$config  = require __DIR__ . '/config.php';
-$baseUrl = sprintf('http://%s/api/%s', $config['ip'], $config['username']);
-$lampUrl = sprintf('%s/lights/%s/state', $baseUrl, $config['lamp_id']);
+require_once __DIR__ . '/bootstrap.php';
 
 if ($argc < 2) {
     exit('Usage: ' . $argv[0] . " COMMAND\n");
 }
 
 switch ($argv[1]) {
+    case 'hello':
     case 'on':
-        curl('PUT', $lampUrl, ['on' => true]);
+        on($config['lampUrl']);
         break;
 
+    case 'goodbye':
     case 'off':
-        curl('PUT', $lampUrl, ['on' => false]);
+        off($config['lampUrl']);
         break;
 
     case 'brightness':
         $brightness = (int)$argv[2];
         $transition = !empty($argv[3]) ? (int)$argv[3] : 0;
-        curl('PUT', $lampUrl, ['bri' => $brightness, 'transitiontime' => $transition]);
+        brightness($config['lampUrl'], $brightness, $transition);
+        break;
+
+    case 'hue':
+        $hue = (int)$argv[2];
+        hue($config['lampUrl'], $hue);
+        break;
+
+    case 'sat':
+        $sat = (int)$argv[2];
+        sat($config['lampUrl'], $sat);
         break;
 
     default:
