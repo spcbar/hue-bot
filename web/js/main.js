@@ -1,25 +1,21 @@
 $(function () {
 
     var body = $('body'),
-        rocket = $('#rocket'),
-        rocketPayload = $('#rocket-payload'),
         rocketPayloadAndromeda = $('#rocket-payload-andromeda');
 
     window.andro = {
         speaking: function () {
             rocketPayloadAndromeda.addClass('glow');
+            setTimeout(function(){
+                andro.silent();
+            }, 10000);
         },
         silent: function () {
             rocketPayloadAndromeda.removeClass('glow');
         },
         phase: function (n) {
             body.addClass('phase-' + n);
-            if (n == 3) {
-                this.speaking();
-            }
-            if (n == 4) {
-                this.silent();
-            }
+            this.speaking();
         },
     };
 

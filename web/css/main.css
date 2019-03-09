@@ -67,7 +67,6 @@ body {
     background: #000 url("https://image.ibb.co/mjnygo/stars.png") repeat top center;
 }
 #twinkling {
-    z-index: 1;
     background: transparent url("https://image.ibb.co/ir1DE8/twinkling.png") repeat top center;
     animation: move-twink-back 200s linear infinite;
 }
@@ -180,6 +179,31 @@ body {
     border: 1px solid black;
     background: #345a2b;
     bottom: -6px;
+}
+
+#satellite {
+    z-index: 10;
+    transform: rotate(35deg) scale(0.5);
+    right: -800px;
+    top: 10px;
+    width: 800px;
+    height: 720px;
+    position: absolute;
+    background: url(/img/satellite.png) 0 0 no-repeat;
+}
+.phase-4 #satellite {
+    transform: rotate(-15deg) scale(0.4);
+    animation: rotate-satellite 8s linear;
+}
+@keyframes rotate-satellite {
+    from {
+        transform: rotate(10deg) scale(0.5);
+        right: -800px;
+    }
+    to {
+        transform: rotate(-15deg) scale(0.4);
+        right: 800px;
+    }
 }
 
 .phase-1 #stars {
