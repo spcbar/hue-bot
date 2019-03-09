@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
 
     var body = $('body'),
         rocket = $('#rocket'),
@@ -12,11 +12,26 @@ $(function(){
         silent: function () {
             rocketPayloadAndromeda.removeClass('glow');
         },
-        phaseOne: function () {
-            body.addClass('phase-1');
+        phase: function (n) {
+            body.addClass('phase-' + n);
+            if (n == 3) {
+                this.speaking();
+            }
+            if (n == 4) {
+                this.silent();
+            }
         },
-        phaseTwo: function () {
-            body.addClass('phase-2');
-        }
     };
+
+    setInterval(function () {
+        $.get('/phase.dat', function(data) {
+            switch (data) {
+                case 0:
+                    return;
+                default:
+                    andro.phase(data);
+                    return;
+            }
+        });
+    }, 200);
 });
