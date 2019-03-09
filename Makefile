@@ -1,3 +1,11 @@
+.PHONY: on
+on:
+	./bin/hue.sh on
+
+.PHONY: off
+off:
+	./bin/hue.sh off
+
 .PHONY: high-low-start
 high-low-start:
 	touch high-low.lock
@@ -7,6 +15,7 @@ high-low-start:
 high-low-stop:
 	rm -f high-low.lock
 
-.PHONY: web
-web:
-	php -S localhost:9080 -t web/
+.PHONY: server
+server:
+	./bin/server.sh
+
