@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Amplitude</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+</head>
+<body>
+<div>Volume: <span id="volume"></span></div>
+
+<button onclick="start()">Start</button>
+<button onclick="stop()">Stop</button>
+<img id="beacon" src="">
+
+<script>
+    var elem = document.getElementById('volume');
+    var beacon = document.getElementById('beacon');
+    var baseUrl = '/api.php?br=';
+
+    var interval, mic, volume = 0;
+
+    function start() {
+        mic = new p5.AudioIn();
+        mic.start();
+        interval = setInterval(function(){
+            volume = mic.getLevel() * 1000;
+            elem.textContent = volume;
+            beacon.src = baseUrl + volume;
+        }, 10);
+    }
+
+    function stop() {
+        clearInterval(interval);
+        mic.stop();
+    }
+</script>
+
+</body>
+</html>
