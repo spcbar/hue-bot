@@ -23,8 +23,9 @@ switch ($argv[1]) {
 
     case 'brightness':
         $brightness = (int)$argv[2];
-        $transition = 0;
-        if ($transition < 0) {
+        if (!empty($argv[3])) {
+            $transition = (int)$argv[3];
+        } else {
             $transition = 0;
         }
 	    curl('PUT', $lampUrl, ['bri' => $brightness, 'transitiontime' => $transition]);
@@ -33,6 +34,3 @@ switch ($argv[1]) {
     default:
         exit('Unsupported command');
 }
-header('Content-Type: image/gif');
-echo base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw==');
-exit;
