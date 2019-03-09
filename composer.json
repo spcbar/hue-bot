@@ -1,0 +1,11 @@
+{
+    "name": "spcbar/hue-cli",
+    "autoload": {
+        "psr-4": {
+            "SpaceBar\\": "src/"
+        }
+    },
+    "require": {
+        "maxbeckers/amazon-alexa-php": "^1.3"
+    }
+}

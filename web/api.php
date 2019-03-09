@@ -1,7 +1,7 @@
 <?php
 
 $argc = 2;
-$argv = ['_', 'brightness', $_GET['br']];
+$argv = ['_', $_GET['action'], $_GET['value']];
 
 require __DIR__ . '/../hue.php';
 
