@@ -27,7 +27,7 @@
         interval = setInterval(function(){
             volume = mic.getLevel() * 1000;
             elem.textContent = volume;
-            beacon.src = baseUrl + volume;
+            beacon.src = baseUrl + volume + '&ts=' + (new Date).getTime();
         }, 10);
     }
 
